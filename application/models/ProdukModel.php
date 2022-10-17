@@ -92,6 +92,7 @@ class ProdukModel extends CI_Model
         $this->db->select('category.id_category');
         $this->db->from('produk');
         $this->db->join('category', 'produk.id_category = category.id_category');
+        $this->db->join('detail_gambar', 'produk.id_gambar = detail_gambar.id_produk');
         $this->db->where('category.id_category', $id_category);
         return $this->db->get()->result();
     }
